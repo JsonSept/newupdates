@@ -11,12 +11,12 @@ const getPosts = async()=>{
     return result
 }
 
-const getPost = async(id) =>{
+const getPost = async(postID) =>{
     const [result] = await pool.query(`
     SELECT *
     FROM posts
-    WHERE id = ?
-    `,[id])
+    WHERE postID = ?
+    `,[postID])
     return result
 }
 const deletePost = async(id) => { // pool helps connect to the database
