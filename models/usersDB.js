@@ -18,7 +18,7 @@ const getUser = async(id) =>{
     const [result] = await pool.query(`
     SELECT *
     FROM users
-    WHERE id = ?
+    WHERE userID = ?
     `,[id])
     return result
 }
