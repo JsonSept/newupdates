@@ -3,9 +3,6 @@ import {config} from 'dotenv'
 import {pool} from '../config/config.js'
 config()
 
-
-
-
 const getAdmins = async()=>{
     const[result] = await pool.query(`
     SELECT * FROM
@@ -14,17 +11,17 @@ const getAdmins = async()=>{
     return result
 }
 
-const getAdmin = async(id) =>{
+const getAdmin = async(adminID) =>{
     const [result] = await pool.query(`
     SELECT *
     FROM admin
-    WHERE id = ?
-    `,[id])
+    WHERE adminID = ?
+    `,[adminID])
     return result
 }
 const deleteUser = async(id) => { // pool helps connect to the database
     const [result] = await pool.query(` 
-        DELETE FROM admin WHERE (id) = (?)
+        DELETE FROM admin WHERE (userID) = (?)
     `,[id])
     return result
 }
